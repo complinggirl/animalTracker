@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: animalTracker_development
+
+test:
+  adapter: postgresql
+  database: animalTracker_test
+

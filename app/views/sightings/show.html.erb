@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<%= @animal = @sighting.animal.name %>
+<%= @sighting.id %>
+
+
+
+
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @sighting.longitude %>
+</
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @sighting.latitude %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sighting.date %>
+</p>
+
+
+<p>
+  <strong>Region:</strong>
+  <%= @sighting.region.name %>
+</p>
+
+
+
+<%= link_to 'Edit sighting', edit_animal_sighting_path(@animal, @sighting) %>
