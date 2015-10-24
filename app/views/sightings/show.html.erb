@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
-<%= @animal = @sighting.animal.name %>
+<%= @animal = @sighting.animal %>
 <%= @sighting.id %>
-
-
-
 
 
 <p>
@@ -30,3 +27,4 @@
 
 
 <%= link_to 'Edit sighting', edit_animal_sighting_path(@animal, @sighting) %>
+<%= link_to 'REturn to sightings', animal_sightings_path(@animal, @sighting) %>
