@@ -3,7 +3,7 @@ class CreateSightings < ActiveRecord::Migration
     create_table :sightings do |t|
       t.float :longitude
       t.float :latitude
-      t.string :date
+      t.date :date
       t.integer :animal_id
       t.integer :region_id
       t.timestamps null: false

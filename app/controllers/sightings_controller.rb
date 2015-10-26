@@ -4,8 +4,29 @@ class SightingsController < ApplicationController
   # GET /sightings
   # GET /sightings.json
   def index
-    @animal = Animal.find(params[:animal_id])
-    @sightings = @animal.sightings.all
+    @temp = params[:sightings]
+    # puts "***********!!!!!!!!!!!!!!************"
+    # puts @temp
+    # puts "***********!!!!!!!!!!!!!!************"
+    @start = @temp[:start_date]
+    @finish = @temp[:end_date]
+    @reg = @temp[:reg]
+    @foo = Sighting.all
+    puts "***********!!!!!!!!!!!!!!************"
+    # @foo.each  do |x|
+    #   puts x.region.name
+    # end
+      puts "***********!!!!!!!!!!!!!!************"
+
+
+    @sightings = []
+    @temp = Sighting.where(:date => @start..@finish)
+    @temp.each do |sighting|
+      if sighting.region.name == @reg
+        @sightings << sighting
+      end
+    end
+
   end
 
   # GET /sightings/1
@@ -61,7 +82,7 @@ class SightingsController < ApplicationController
   # DELETE /sightings/1
   # DELETE /sightings/1.json
   def destroy
-    @animal = Animal.find(params[:animal_id])
+    @animal = @sighting.animal
     @sighting.destroy
     respond_to do |format|
       format.html { render :destroy, notice: 'Sighting was successfully destroyed.' }

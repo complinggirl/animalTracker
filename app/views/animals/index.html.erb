@@ -16,12 +16,29 @@
         <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
         <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Add Sighting', new_animal_sighting_path(animal) %><td>
-        <td><%= link_to 'List previous sightings', animal_sightings_path(animal) %><td>
+        <!-- <td><%= link_to 'List previous sightings', animal_sightings_path(animal) %><td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
+<%= link_to 'Add new species', new_animal_path %>
 
-<%= link_to 'New Animal', new_animal_path %>
+
+<form action="/sightings" method="get">
+  <label for="sightings_start_date">Start date</label>
+  <input id="sightings_start_date" name="sightings[start_date]" type="date">
+  <label for="sightings_end_date">End date</label>
+  <input id="sightings_end_date" name="sightings[end_date]" type="date">
+
+
+<select class="select required" id="region" name="sightings[reg]">
+  <option value="north">North</option>
+  <option value="south">South</option>
+  <option value="east">East</option>
+  <option value="west">West</option>
+</select>
+<button>Run report</button>
+
+</form>

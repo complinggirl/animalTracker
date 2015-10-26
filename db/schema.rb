@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151017191330) do
   create_table "sightings", force: :cascade do |t|
     t.float    "longitude"
     t.float    "latitude"
-    t.string   "date"
+    t.date     "date"
     t.integer  "animal_id"
     t.integer  "region_id"
     t.datetime "created_at", null: false
